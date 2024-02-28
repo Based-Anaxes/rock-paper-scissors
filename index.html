@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lamg="em">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rock Paper Scissors</title>
+        <script>
+            function getComputerChoice () {
+                let randomChoice = Math.floor(Math.random() * 3) + 1;
+                if (randomChoice === 1) {
+                    choice = "Rock"
+                } else if (randomChoice == 2) {
+                    choice = "Paper";
+                } else {
+                    choice = "Scissors"
+                }
+                return choice;
+            }
+            console.log (getComputerChoice());
+        </script>
     </head>
     <body>
-        <script>
-            
-        </script>
     </body>
 </html>
