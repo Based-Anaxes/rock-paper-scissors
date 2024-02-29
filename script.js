@@ -15,24 +15,21 @@ function getComputerChoice (rock, paper, scissors) {
 }
 
 let getPlayerChoice = prompt("Rock, paper, scissors, shoot!");
-
-function playerSelection (getPlayerChoice, rock, paper, scissors) {
     switch (getPlayerChoice.toLowerCase()){
         case "rock":
-            playerChoice = rock;
+            playerSelection = rock;
             break;
         case "paper":
-            playerChoice = paper;
+            playerSelection = paper;
             break;
         case "scissors":
-            playerChoice = scissors;
+            playerSelection = scissors;
             break;
         default:
-            playerChoice = "Shoot!";
+            playerSelection = "Shoot!";
             break;
     }
-    return playerChoice;
-}
+
 const computerSelection = getComputerChoice(rock, paper, scissors);
 
-console.log(computerSelection);
+console.log(playerSelection);
