@@ -1,21 +1,21 @@
-const rock = "Rock";
-const paper = "Paper";
-const scissors = "Scissors";
+let rock = "Rock";
+let paper = "Paper";
+let scissors = "Scissors";
 
 function getComputerChoice (rock, paper, scissors) {
-    let randomChoice = Math.floor(Math.random() * 3) + 1;
-    if (randomChoice === 1) {
-        randomChoice = rock
-    } else if (randomChoice == 2) {
-        randomChoice = paper
+    let getComputerChoice = Math.floor(Math.random() * 3) + 1;
+    if (getComputerChoice === 1) {
+        getComputerChoice = rock
+    } else if (getComputerChoice == 2) {
+        getComputerChoice = paper
     } else {
-        randomChoice = scissors
+        getComputerChoice = scissors
     }
-    return randomChoice;
+    return getComputerChoice;
 }
 
-let getPlayerChoice = prompt("Rock, paper, scissors, shoot!");
-    switch (getPlayerChoice.toLowerCase()){
+let getPlayerSelection= prompt("Rock, paper, scissors, shoot!");
+    switch (getPlayerSelection.toLowerCase()){
         case "rock":
             playerSelection = rock;
             break;
@@ -32,4 +32,18 @@ let getPlayerChoice = prompt("Rock, paper, scissors, shoot!");
 
 const computerSelection = getComputerChoice(rock, paper, scissors);
 
-console.log(playerSelection);
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection == rock && computerSelection == scissors) {
+        result = "Victory! Rock SMASHES Scissors!";
+    } else if (playerSelection == scissors && computerSelection == rock) {
+        result = "Defeat! Rock SMASHES Scissors!";
+    } else {
+        result = "Tie!";
+    }
+    return result;
+}
+console.log (computerSelection);
+console.log (playerSelection)
+console.log (playRound (playerSelection, computerSelection));
+
+
