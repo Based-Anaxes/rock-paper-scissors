@@ -1,3 +1,7 @@
+const rock = "Rock";
+const paper = "Paper";
+const scissors = "Scissors";
+
 function getComputerChoice (rock, paper, scissors) {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
     if (randomChoice === 1) {
@@ -10,17 +14,18 @@ function getComputerChoice (rock, paper, scissors) {
     return randomChoice;
 }
 
-function playerSelection () {
-    let getPlayerChoice = prompt("Rock, paper, scissors, shoot!");
+let getPlayerChoice = prompt("Rock, paper, scissors, shoot!");
+
+function playerSelection (getPlayerChoice, rock, paper, scissors) {
     switch (getPlayerChoice.toLowerCase()){
         case "rock":
-            playerChoice = "rock";
+            playerChoice = rock;
             break;
         case "paper":
-            playerChoice = "paper";
+            playerChoice = paper;
             break;
         case "scissors":
-            playerChoice = "scissors";
+            playerChoice = scissors;
             break;
         default:
             playerChoice = "Shoot!";
@@ -30,11 +35,7 @@ function playerSelection () {
 }
 
 function computerSelection (getComputerChoice) {
-    return getComputerChoice;
+    return getComputerChoice(rock, paper, scissors);
 }
 
-const rock = "Rock";
-const paper = "Paper";
-const scissors = "Scissors";
-
-console.log(getComputerChoice(rock, paper, scissors));
+console.log (playerSelection(getPlayerChoice, rock, paper, scissors));
