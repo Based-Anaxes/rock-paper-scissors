@@ -9,4 +9,24 @@ function getComputerChoice () {
     }
     return choice;
 }
-console.log (getComputerChoice());
+
+function playerSelection () {
+    let getPlayerChoice = prompt("Rock, paper, scissors, shoot!");
+    switch (getPlayerChoice.toLowerCase()){
+        case "rock":
+            playerChoice = "rock";
+            break;
+        case "paper":
+            playerChoice = "paper";
+            break;
+        case "scissors":
+            playerChoice = "scissors";
+            break;
+        default:
+            playerChoice = "Shoot!";
+            break;
+    }
+    return playerChoice;
+}
+
+console.log(playerSelection());
