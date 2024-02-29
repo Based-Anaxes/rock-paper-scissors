@@ -33,9 +33,6 @@ function playerSelection (getPlayerChoice, rock, paper, scissors) {
     }
     return playerChoice;
 }
+const computerSelection = getComputerChoice(rock, paper, scissors);
 
-function computerSelection (getComputerChoice) {
-    return getComputerChoice(rock, paper, scissors);
-}
-
-console.log (playerSelection(getPlayerChoice, rock, paper, scissors));
+console.log(computerSelection);
