@@ -1,13 +1,13 @@
-function getComputerChoice () {
+function getComputerChoice (rock, paper, scissors) {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
     if (randomChoice === 1) {
-        choice = "Rock"
+        randomChoice = rock
     } else if (randomChoice == 2) {
-        choice = "Paper";
+        randomChoice = paper
     } else {
-        choice = "Scissors"
+        randomChoice = scissors
     }
-    return choice;
+    return randomChoice;
 }
 
 function playerSelection () {
@@ -29,4 +29,12 @@ function playerSelection () {
     return playerChoice;
 }
 
-console.log(playerSelection());
+function computerSelection (getComputerChoice) {
+    return getComputerChoice;
+}
+
+const rock = "Rock";
+const paper = "Paper";
+const scissors = "Scissors";
+
+console.log(getComputerChoice(rock, paper, scissors));
