@@ -34,10 +34,19 @@ const computerSelection = getComputerChoice(rock, paper, scissors);
 
 function playRound (playerSelection, computerSelection) {
     if (playerSelection == rock && computerSelection == scissors) {
-        result = "Victory! Rock SMASHES Scissors!";
+        result = "VICTORY! Rock SMASHES Scissors!";
     } else if (playerSelection == scissors && computerSelection == rock) {
-        result = "Defeat! Rock SMASHES Scissors!";
-    } else {
+        result = "DEFEAT! Rock SMASHES Scissors!";
+    } else if (playerSelection == paper && computerSelection == rock) {
+        result = "VICTORY! Paper COVERS Rock!";
+    } else if (playerSelection == rock && computerSelection == paper) {
+        result = "DEFEAT! Paper COVERS Rock!";
+    } else if (playerSelection == scissors && computerSelection == paper) {
+        result = "VICTORY! Scissors CUT Paper!";
+    } else if (playerSelection == paper && computerSelection == scissors) {
+        result = "DEFEAT! Scissors CUT Paper";
+    }
+    else {
         result = "Tie!";
     }
     return result;
