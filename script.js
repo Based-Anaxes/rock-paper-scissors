@@ -52,16 +52,21 @@ function playRound (playerSelection, computerSelection) {
     return result;
 }
 
-function playGame () {
+function playGame() {
     let playerScore = "Your Score: ";
     let computerScore = "Computer Score: ";
     let playerScoreCount = 0;
     let computerScoreCount = 0;
     const round = playRound(playerSelection, computerSelection);
     console.log(round); 
-
     switch (round){
         case "VICTORY! Rock SMASHES Scissors!":
+            playerScoreCount = ++playerScoreCount;
+            break;
+        case "VICTORY! Paper COVERS Rock!":
+            playerScoreCount = ++playerScoreCount;
+            break;
+        case "VICTORY! Scissors CUT Paper!":
             playerScoreCount = ++playerScoreCount;
             break;
         default:
@@ -80,5 +85,4 @@ function playGame () {
     console.log(computerScore);
     console.log(computerScoreCount);
 }
-
-console.log (playGame());
+console.log(playGame());
