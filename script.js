@@ -44,7 +44,7 @@ function playRound (playerSelection, computerSelection) {
     } else if (playerSelection == scissors && computerSelection == paper) {
         result = "VICTORY! Scissors CUT Paper!";
     } else if (playerSelection == paper && computerSelection == scissors) {
-        result = "DEFEAT! Scissors CUT Paper";
+        result = "DEFEAT! Scissors CUT Paper!";
     }
     else {
         result = "Tie!";
@@ -69,6 +69,15 @@ function playGame() {
         case "VICTORY! Scissors CUT Paper!":
             playerScoreCount = ++playerScoreCount;
             break;
+        case "DEFEAT! Rock SMASHES Scissors!":
+            computerScoreCount = ++computerScoreCount; 
+            break; 
+        case "DEFEAT! Paper COVERS Rock!":
+            computerScoreCount = ++computerScoreCount; 
+            break;
+        case "DEFEAT! Scissors CUT Paper!":
+            computerScoreCount = ++computerScoreCount; 
+            break; 
         default:
             score = 0;
     }
