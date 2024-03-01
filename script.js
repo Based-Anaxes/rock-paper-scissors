@@ -51,8 +51,34 @@ function playRound (playerSelection, computerSelection) {
     }
     return result;
 }
-console.log (computerSelection);
-console.log (playerSelection)
-console.log (playRound (playerSelection, computerSelection));
 
+function playGame () {
+    let playerScore = "Your Score: ";
+    let computerScore = "Computer Score: ";
+    let playerScoreCount = 0;
+    let computerScoreCount = 0;
+    const round = playRound(playerSelection, computerSelection);
+    console.log(round); 
 
+    switch (round){
+        case "VICTORY! Rock SMASHES Scissors!":
+            playerScoreCount = ++playerScoreCount;
+            break;
+        default:
+            score = 0;
+    }
+/*
+    if (playerScore > computerScore) {
+        score = "YOU WIN!"
+    } else if (playerScore < computerScore) {
+        score = "COMPUTER WINS!"
+    } else {
+        score = "IT'S A TIE!";
+    } */
+    console.log(playerScore);
+    console.log(playerScoreCount);
+    console.log(computerScore);
+    console.log(computerScoreCount);
+}
+
+console.log (playGame());
