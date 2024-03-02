@@ -1,9 +1,10 @@
-let rock = "Rock";
-let paper = "Paper";
-let scissors = "Scissors";
+const rock = "Rock";
+const paper = "Paper";
+const scissors = "Scissors";
+
 let playerScore = 0;
 let computerScore = 0;
-let round = 0
+
 function getComputerChoice (rock, paper, scissors) {
     let getComputerChoice = Math.floor(Math.random() * 3) + 1;
     if (getComputerChoice === 1) {
@@ -29,11 +30,12 @@ let getPlayerSelection= prompt("Rock, paper, scissors, shoot!");
             playerSelection = scissors;
             break;
         default:
-            playerSelection = "Shoot!";
+            alert("Invalid Input!")
             break;
     } 
     return playerSelection;
 }
+
 function computerSelection (){
     return getComputerChoice(rock, paper, scissors);
 }
@@ -65,6 +67,7 @@ function playRound (playerSelection, computerSelection) {
         }
     else {
         console.log("TIE!");
+        return score = 0;
     }
 
 }
@@ -91,4 +94,4 @@ function playGame() {
 
 }
 
-console.log(playGame());
+playGame();
