@@ -1,7 +1,9 @@
 let rock = "Rock";
 let paper = "Paper";
 let scissors = "Scissors";
-/*maybe globally declare the playerscore and computer score to use them elsewhere*/
+let playerScore = 0;
+let computerScore = 0;
+let round = 0
 function getComputerChoice (rock, paper, scissors) {
     let getComputerChoice = Math.floor(Math.random() * 3) + 1;
     if (getComputerChoice === 1) {
@@ -13,7 +15,8 @@ function getComputerChoice (rock, paper, scissors) {
     }
     return getComputerChoice;
 }
-/*MAKE THIS A FUNCTION ADD IT TO PLAYROUND OR PLAYGAME */
+
+function getPlayerChoice (playerSelection){
 let getPlayerSelection= prompt("Rock, paper, scissors, shoot!");
     switch (getPlayerSelection.toLowerCase()){
         case "rock":
@@ -28,75 +31,63 @@ let getPlayerSelection= prompt("Rock, paper, scissors, shoot!");
         default:
             playerSelection = "Shoot!";
             break;
-    }
-
-const computerSelection = getComputerChoice(rock, paper, scissors);
-/*maybe change the return values for this function */
-function playRound (playerSelection, computerSelection) {
-    if (playerSelection == rock && computerSelection == scissors) {
-        result = "VICTORY! Rock SMASHES Scissors!";
-    } else if (playerSelection == scissors && computerSelection == rock) {
-        result = "DEFEAT! Rock SMASHES Scissors!";
-    } else if (playerSelection == paper && computerSelection == rock) {
-        result = "VICTORY! Paper COVERS Rock!";
-    } else if (playerSelection == rock && computerSelection == paper) {
-        result = "DEFEAT! Paper COVERS Rock!";
-    } else if (playerSelection == scissors && computerSelection == paper) {
-        result = "VICTORY! Scissors CUT Paper!";
-    } else if (playerSelection == paper && computerSelection == scissors) {
-        result = "DEFEAT! Scissors CUT Paper!";
-    }
-    else {
-        result = "TIE!";
-    }
-    return result;
-}
-let round = 1;
-function playGame() {
-    let playerScore = "Your Score: ";
-    let computerScore = "Computer Score: ";
-    let playerScoreCount = 0;
-    let computerScoreCount = 0;
-    console.log(playerSelection);
-    console.log(computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
-    switch (playRound(playerSelection, computerSelection)){
-        case "VICTORY! Rock SMASHES Scissors!":
-            playerScoreCount = ++playerScoreCount;
-            break;
-        case "VICTORY! Paper COVERS Rock!":
-            playerScoreCount = ++playerScoreCount;
-            break;
-        case "VICTORY! Scissors CUT Paper!":
-            playerScoreCount = ++playerScoreCount;
-            break;
-        case "DEFEAT! Rock SMASHES Scissors!":
-            computerScoreCount = ++computerScoreCount; 
-            break; 
-        case "DEFEAT! Paper COVERS Rock!":
-            computerScoreCount = ++computerScoreCount; 
-            break;
-        case "DEFEAT! Scissors CUT Paper!":
-            computerScoreCount = ++computerScoreCount; 
-            break; 
-        default:
-            score = 0;
-    }
-    
-    if (playerScoreCount > computerScoreCount) {
-        score = "YOU WIN!"
-    } else if (playerScoreCount < computerScoreCount) {
-        score = "COMPUTER WINS!"
-    } else {
-        score = "IT'S A TIE!";
     } 
+    return playerSelection;
+}
+function computerSelection (){
+    return getComputerChoice(rock, paper, scissors);
+}
 
-    console.log(playerScore);
-    console.log(playerScoreCount);
-    console.log(computerScore);
-    console.log(computerScoreCount);
-    round ++;
-    return score;
+function playRound (playerSelection, computerSelection) {
+    playerSelection = (getPlayerChoice(playerSelection));
+    console.log (playerSelection);
+    computerSelection = (getComputerChoice(rock, paper, scissors));
+    console.log (computerSelection);
+    
+    if (playerSelection == rock && computerSelection == scissors) {
+        console.log("VICTORY! Rock SMASHES Scissors!");
+        return ++playerScore;
+    } else if (playerSelection == scissors && computerSelection == rock) {
+        console.log("DEFEAT! Rock SMASHES Scissors!");
+        return ++computerScore;
+    } else if (playerSelection == paper && computerSelection == rock) {
+        console.log("VICTORY! Paper COVERS Rock!");
+        return ++playerScore;
+    } else if (playerSelection == rock && computerSelection == paper) {
+        console.log("DEFEAT! Paper COVERS Rock!");
+        return ++computerScore;
+    } else if (playerSelection == scissors && computerSelection == paper) {
+        console.log("VICTORY! Scissors CUT Paper!");
+        return ++playerScore;
+    } else if (playerSelection == paper && computerSelection == scissors) {
+        console.log("DEFEAT! Scissors CUT Paper!");
+        return ++computerScore;
+        }
+    else {
+        console.log("TIE!");
+    }
 
 }
+
+function playGame() {
+    let round = ([playRound(getPlayerChoice, computerSelection)]);
+    console.log(round);
+
+    if (playerScore > computerScore) {
+        result = "YOU WIN!";
+    } else if (playerScore < computerScore) {
+        result = "COMPUTER WINS!";
+    } else {
+        result = "IT'S A TIE!";
+    }
+
+    console.log("YOUR SCORE = ");
+    console.log(playerScore);
+    console.log("COMPUTER SCORE = ");
+    console.log(computerScore);
+    round ++;
+    console.log(result);
+
+}
+
 console.log(playGame());
