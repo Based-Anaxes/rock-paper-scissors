@@ -1,7 +1,7 @@
 let rock = "Rock";
 let paper = "Paper";
 let scissors = "Scissors";
-
+/*maybe globally declare the playerscore and computer score to use them elsewhere*/
 function getComputerChoice (rock, paper, scissors) {
     let getComputerChoice = Math.floor(Math.random() * 3) + 1;
     if (getComputerChoice === 1) {
@@ -13,7 +13,7 @@ function getComputerChoice (rock, paper, scissors) {
     }
     return getComputerChoice;
 }
-
+/*MAKE THIS A FUNCTION ADD IT TO PLAYROUND OR PLAYGAME */
 let getPlayerSelection= prompt("Rock, paper, scissors, shoot!");
     switch (getPlayerSelection.toLowerCase()){
         case "rock":
@@ -31,7 +31,7 @@ let getPlayerSelection= prompt("Rock, paper, scissors, shoot!");
     }
 
 const computerSelection = getComputerChoice(rock, paper, scissors);
-
+/*maybe change the return values for this function */
 function playRound (playerSelection, computerSelection) {
     if (playerSelection == rock && computerSelection == scissors) {
         result = "VICTORY! Rock SMASHES Scissors!";
@@ -51,17 +51,16 @@ function playRound (playerSelection, computerSelection) {
     }
     return result;
 }
-
+let round = 1;
 function playGame() {
     let playerScore = "Your Score: ";
     let computerScore = "Computer Score: ";
     let playerScoreCount = 0;
     let computerScoreCount = 0;
-
-    const roundResult = playRound(playerSelection, computerSelection);
-    console.log(roundResult); 
-
-    switch (roundResult){
+    console.log(playerSelection);
+    console.log(computerSelection);
+    console.log(playRound(playerSelection, computerSelection));
+    switch (playRound(playerSelection, computerSelection)){
         case "VICTORY! Rock SMASHES Scissors!":
             playerScoreCount = ++playerScoreCount;
             break;
@@ -83,8 +82,7 @@ function playGame() {
         default:
             score = 0;
     }
-
-
+    
     if (playerScoreCount > computerScoreCount) {
         score = "YOU WIN!"
     } else if (playerScoreCount < computerScoreCount) {
@@ -97,7 +95,8 @@ function playGame() {
     console.log(playerScoreCount);
     console.log(computerScore);
     console.log(computerScoreCount);
-
+    round ++;
     return score;
+
 }
 console.log(playGame());
