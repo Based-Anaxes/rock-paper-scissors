@@ -74,7 +74,7 @@ function playRound (playerSelection, computerSelection) {
 
 function playGame() {
     for(round = 1; round < 6; round++){
-    let round = ([playRound(getPlayerChoice, computerSelection)]);
+    let round = (playRound(getPlayerChoice, computerSelection));
     console.log(round);
     }
     if (playerScore > computerScore) {
