@@ -1,18 +1,19 @@
-const ROCK = "Rock";
-const PAPER = "Paper";
-const SCISSORS = "Scissors";
+const CHOICES = ["Rock", "Paper", "Scissors"]; 
+const BUTTONS = document.querySelectorAll('button');
+const PLAYER_SELECTION = Array.from(BUTTONS);
 
-function getComputerSelection() {
-    switch (computerSelection = Math.floor((Math.random() * 3) + 1)) {
-        case 1:
-            computerSelection = ROCK;
-            break;
-        case 2: 
-            computerSelection = PAPER;
-            break; 
-        case 3: 
-            computerSelection = SCISSORS;
-    }       
-        return computerSelection;
+function getPlayerSelection() {
+
 }
-console.log(getComputerSelection());
+console.log(BUTTONS);
+console.log(PLAYER_SELECTION);
+function getComputerChoice() {
+    let computerChoice = CHOICES[Math.floor(CHOICES.length * Math.random())];
+    return computerChoice;
+}
+
+function playRound(...BUTTONS) {
+
+}
+console.log(getComputerChoice());
+console.log(getPlayerSelection());
