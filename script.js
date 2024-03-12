@@ -13,8 +13,6 @@ let round = 0;
 let playerScore = 0;
 let computerScore = 0; 
 
-let computerChoice = choices[Math.floor(choices.length * Math.random())];
-
 game.appendChild(playerText); 
 game.appendChild(computerText);
 game.appendChild(resultText);
@@ -22,8 +20,15 @@ game.appendChild(score);
 score.appendChild(playerScoreText);
 score.appendChild(computerScoreText);
 
+function getComputerChoice(){
+    let computerChoice = choices[Math.floor(choices.length * Math.random())];
+    console.log(computerChoice);
+    return computerChoice;
+}
+
 buttons.forEach((button) => {
     button.addEventListener("click", (button) => {
+        let computerSelection = getComputerChoice();
         if (button.target.matches('#rock')) {
             playerChoice = choices[0];
         } else if (button.target.matches('#paper')) {
@@ -31,32 +36,28 @@ buttons.forEach((button) => {
         } else {
             playerChoice = choices[2];
         }
-        playRound(playerChoice, computerChoice);
+        playRound(playerChoice, computerSelection);
     })
 })
-function playRound(playerChoice, computerChoice) {
+
+function playRound(playerChoice, computerSelection) {
     playerScoreText.textContent = playerScore;
     computerScoreText.textContent = computerScore;
     playerText.innerText = `You chose: ${playerChoice}`; 
-    computerText.innerText = `Computer chose: ${computerChoice}`; 
-    if ((playerChoice == choices[0] && computerChoice == choices[2]) 
-        || (playerChoice == choices[1] && computerChoice == choices[0]) 
-        || (playerChoice == choices[2] && computerChoice == choices[1])) {
+    computerText.innerText = `Computer chose: ${computerSelection}`; 
+    if ((playerChoice == choices[0] && computerSelection == choices[2]) 
+        || (playerChoice == choices[1] && computerSelection == choices[0]) 
+        || (playerChoice == choices[2] && computerSelection == choices[1])) {
             resultText.textContent = results[0];
             playerScoreText.textContent = ++playerScore; 
-    } else if ((computerChoice == choices[0] && playerChoice == choices[2])
-                || (computerChoice == choices[1] && playerChoice == choices[0]) 
-                || (computerChoice == choices[2] && playerChoice == choices[1])) {
+    } else if ((computerSelection == choices[0] && playerChoice == choices[2])
+                || (computerSelection == choices[1] && playerChoice == choices[0]) 
+                || (computerSelection == choices[2] && playerChoice == choices[1])) {
                     resultText.textContent = results[1];
                     computerScoreText.textContent = ++computerScore;
                 } else {
                     resultText.textContent = results[2];
                 }
 }
-function playGame() {
-    for (let round = 0; round < 5; round++) {
-        playRound;
-        round++;
-    }
-}
-console.log(computerChoice);
+
+
