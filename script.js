@@ -14,14 +14,6 @@ const endRoundText = document.createElement('div')
 let playerScore = 0;
 let computerScore = 0; 
 
-game.appendChild(playerText); 
-game.appendChild(computerText);
-game.appendChild(resultText);
-game.appendChild(score);
-score.appendChild(playerScoreText);
-score.appendChild(computerScoreText);
-score.appendChild(endRoundText);
-
 function getComputerChoice(){
     let computerChoice = choices[Math.floor(choices.length * Math.random())];
     return computerChoice;
@@ -42,8 +34,8 @@ buttons.forEach((button) => {
 })
 
 function playRound(playerChoice, computerSelection) {
-    playerScoreText.textContent = playerScore;
-    computerScoreText.textContent = computerScore;
+    playerScoreText.textContent = `YOU: ${playerScore}`;
+    computerScoreText.textContent = `COMPUTER: ${computerScore}`;
     playerText.innerText = `You chose: ${playerChoice}`; 
     computerText.innerText = `Computer chose: ${computerSelection}`; 
     game.appendChild(playerText); 
@@ -57,12 +49,12 @@ function playRound(playerChoice, computerSelection) {
         || (playerChoice == choices[1] && computerSelection == choices[0]) 
         || (playerChoice == choices[2] && computerSelection == choices[1])) {
             resultText.textContent = results[0];
-            playerScoreText.textContent = ++playerScore; 
+            playerScoreText.textContent = `YOU: ${++playerScore}`; 
     } else if ((computerSelection == choices[0] && playerChoice == choices[2])
                 || (computerSelection == choices[1] && playerChoice == choices[0]) 
                 || (computerSelection == choices[2] && playerChoice == choices[1])) {
                     resultText.textContent = results[1];
-                    computerScoreText.textContent = ++computerScore;
+                    computerScoreText.textContent = `COMPUTER: ${++computerScore}`;
                 } else {
                     resultText.textContent = results[2];
                 }
@@ -91,6 +83,3 @@ function clearGame() {
     score.removeChild(computerScoreText);
     score.removeChild(endRoundText);
 }
-
-
-
