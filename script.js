@@ -12,6 +12,7 @@ const computerScoreText = document.createElement('p');
 let round = 0;
 let playerScore = 0;
 let computerScore = 0; 
+
 let computerChoice = choices[Math.floor(choices.length * Math.random())];
 
 game.appendChild(playerText); 
@@ -32,35 +33,30 @@ buttons.forEach((button) => {
         }
         playRound(playerChoice, computerChoice);
     })
-}) 
-
+})
 function playRound(playerChoice, computerChoice) {
-    playerScoreText.textContent = playerScore; 
+    playerScoreText.textContent = playerScore;
     computerScoreText.textContent = computerScore;
     playerText.innerText = `You chose: ${playerChoice}`; 
-    computerText.innerText = `Computer chose: ${computerChoice}` 
+    computerText.innerText = `Computer chose: ${computerChoice}`; 
     if ((playerChoice == choices[0] && computerChoice == choices[2]) 
         || (playerChoice == choices[1] && computerChoice == choices[0]) 
         || (playerChoice == choices[2] && computerChoice == choices[1])) {
             resultText.textContent = results[0];
-            roundResult = playerScore++
+            playerScoreText.textContent = ++playerScore; 
     } else if ((computerChoice == choices[0] && playerChoice == choices[2])
                 || (computerChoice == choices[1] && playerChoice == choices[0]) 
                 || (computerChoice == choices[2] && playerChoice == choices[1])) {
                     resultText.textContent = results[1];
-                    roundResult = computerScore++
+                    computerScoreText.textContent = ++computerScore;
                 } else {
                     resultText.textContent = results[2];
-                    roundResult = [playerScore, computerScore];
                 }
 }
-
 function playGame() {
-    for(let round = 1; round < 5; round++) {
-        playRound(playerChoice, computerChoice, round);
+    for (let round = 0; round < 5; round++) {
+        playRound;
+        round++;
     }
 }
-
-
-
 console.log(computerChoice);
